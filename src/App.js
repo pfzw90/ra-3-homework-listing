@@ -1,25 +1,19 @@
-import logo from './logo.svg';
+import Listing from './components/Listing/Listing'
 import './App.css';
+import * as data from './data/etsy.json'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const items = [];
+  data.default.forEach(i=> {
+    items.push(i)
+  });
+  
+    return (
+      <div className="App">
+        <Listing items = {items}/>
+      </div>
+    );
+    
 }
 
 export default App;
